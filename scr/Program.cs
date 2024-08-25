@@ -6,6 +6,7 @@ public class Program
 {
     static void Main(string[] args)
     {
+        // deinstall
         if (args.Contains("--deinstall", StringComparer.OrdinalIgnoreCase))
         {
             Uninstaller uninstaller = new Uninstaller();
@@ -13,21 +14,30 @@ public class Program
             return;
         }
 
+        // register autostart
+        // TODO: check if already registered
         AutoStart autoStart = new();
         autoStart.RegisterInStartup();
+
+        // hide console
+        ConsoleManager consoleManager = new();
+        consoleManager.HideConsole();
 
 
         Console.WriteLine($"Hallo, ich bin das Program {Consts.APP_NAME}.");
 
+        // register hotkey
         // TODO: Implement IDisposable
         HotKeyManager.RegisterHotKey(Keys.A, KeyModifiers.Alt);
         HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
 
-        Console.ReadLine();
+        // run
+        Application.Run();
     }
 
     static void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
     {
-        Console.WriteLine("Hit me!");
+        // show feedback
+        MessageBox.Show("Hotkey gedrückt!", "Bestätigung", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }
