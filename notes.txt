@@ -9,8 +9,7 @@ ich möchte stück für stück das prog entwicklen:
 
 das prog ist im autostart registriert
 
-als nchstes möchte ich, dass es auf den shortcut hört:
-shift+windows+f
+alt+a ist mein registrierter shortcut
 
-falls dieser gedrückt wird, möchte ich zum test,
-dass dann in terminal eine message ausgegeben wird.
+ich möchte jetzt, dass beim start von windows nun kein terminal mehr geöffnet wird. das prog soll einfach im hintergrund laufen, und beim shortcut dann eine meldung oder irgendein feedback abgeben,
+damit ich sehe, dass es funktioniert
