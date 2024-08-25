@@ -13,11 +13,20 @@ public class Program
             return;
         }
 
-        AutoStart autoStart = new AutoStart();
+        AutoStart autoStart = new();
         autoStart.RegisterInStartup();
 
+
         Console.WriteLine($"Hallo, ich bin das Program {Consts.APP_NAME}.");
-        Console.WriteLine("Press any key to exit...");
-        Console.ReadKey();
+
+        HotKeyManager.RegisterHotKey(Keys.A, KeyModifiers.Alt);
+        HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
+
+        Console.ReadLine();
+    }
+
+    static void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
+    {
+        Console.WriteLine("Hit me!");
     }
 }
