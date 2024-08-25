@@ -6,7 +6,7 @@ public class Program
 {
     static void Main(string[] args)
     {
-        Console.WriteLine($"Hallo, ich bin das Program {Consts.APP_NAME}.");
+        //Console.WriteLine($"Hallo, ich bin das Program {Consts.APP_NAME}.");
 
         // deinstall
         if (args.Contains("--deinstall", StringComparer.OrdinalIgnoreCase))
@@ -26,18 +26,12 @@ public class Program
         consoleManager.HideConsole();
 
         // register hotkey
+        WindowManager windowManager = new();
         // TODO: Implement IDisposable
         HotKeyManager.RegisterHotKey(Keys.A, KeyModifiers.Alt);
-        HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
+        HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(windowManager.HotKeyManager_HotKeyPressed);
 
         // run
         Application.Run();
-    }
-
-    static void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
-    {
-        // show feedback
-        WindowManager.ToggleWindowPin();
-        MessageBox.Show("Hotkey gedrückt!", "Bestätigung", MessageBoxButtons.OK, MessageBoxIcon.Information);
     }
 }

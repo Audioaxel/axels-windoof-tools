@@ -1,6 +1,6 @@
 using System.Runtime.InteropServices;
 
-public static class WindowManager
+public class WindowManager
 {
     [DllImport("user32.dll")]
     private static extern IntPtr GetForegroundWindow();
@@ -23,7 +23,14 @@ public static class WindowManager
     private static IntPtr _currentWindowHandle = IntPtr.Zero;
     private static bool _isPinned = false;
 
-    public static void ToggleWindowPin()
+    public void HotKeyManager_HotKeyPressed(object sender, HotKeyEventArgs e)
+    {
+        // show feedback
+        ToggleWindowPin();
+        MessageBox.Show("Hotkey gedrückt!", "Bestätigung", MessageBoxButtons.OK, MessageBoxIcon.Information);
+    }
+
+    private void ToggleWindowPin()
     {
         if (!_isPinned)
         {
@@ -38,5 +45,5 @@ public static class WindowManager
         }
     }
 
-    public static bool IsPinned() => _isPinned;
+    public bool IsPinned() => _isPinned;
 }
