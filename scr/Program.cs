@@ -19,6 +19,7 @@ public class Program
 
         Console.WriteLine($"Hallo, ich bin das Program {Consts.APP_NAME}.");
 
+        // TODO: Implement IDisposable
         HotKeyManager.RegisterHotKey(Keys.A, KeyModifiers.Alt);
         HotKeyManager.HotKeyPressed += new EventHandler<HotKeyEventArgs>(HotKeyManager_HotKeyPressed);
 
