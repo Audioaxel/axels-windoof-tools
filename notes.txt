@@ -1,4 +1,4 @@
-ich möchte eine c# consolen app.
+ich möchte eine c# consolen app in dotnet 8.
 - eine exe
 - das prog registriert sich im autostart und ist im task manager unter autostart ersichtlich
 - das prog reagiert auf ein hardgecodetes shortcut
@@ -6,6 +6,11 @@ ich möchte eine c# consolen app.
 - erneutes drücken negiert den effekt
 
 ich möchte stück für stück das prog entwicklen:
-als erstern schritt möchte ich ein prog, das nach der ausführung in vs code sich im autostart registriert, ersichtlich ist und nach dem starten ein terminal mit: Hallo, ich bin das Program Axels Windoof Tools.
 
-ausgibt und auf eine key eingabe vom user wwartet um das terminal zu schließen
+das prog ist im autostart registriert
+
+als nchstes möchte ich, dass es auf den shortcut hört:
+shift+windows+f
+
+falls dieser gedrückt wird, möchte ich zum test,
+dass dann in terminal eine message ausgegeben wird.
